@@ -54,6 +54,7 @@ function PokedexDetail() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                             {pokemonDetails.abilities.map((ability, index) => (
                                 <div key={index} className="capitalize">
+
                                     {ability.ability.name}
                                 </div>
                             ))}
