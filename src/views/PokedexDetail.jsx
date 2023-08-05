@@ -34,7 +34,7 @@ function PokedexDetail() {
                     onClick={() => navigate('/')}
                     className="text-white hover:text-gray-200 transition-colors duration-200 mb-6 flex items-center">
                     <ArrowLeftIcon className="h-5 w-5 mr-1" />
-                    Pokédex
+                    Back
                 </button>
                 <div className="flex flex-col md:flex-row items-center justify-center bg-white text-black rounded-xl p-8 shadow-xl w-full md:w-3/4 lg:w-1/2">
 
