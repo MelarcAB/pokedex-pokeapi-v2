@@ -61,7 +61,6 @@ const PokedexList = () => {
                 )}
                 <div ref={loadRef} className="mb-10" />
 
-                <div ref={loadRef} className="mb-10" />
             </div>
         </div>
     );
