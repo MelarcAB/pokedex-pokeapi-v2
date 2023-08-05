@@ -24,46 +24,54 @@ function PokedexDetail() {
 
     if (!pokemonDetails) return <div>Loading...</div>;
     return (
-        <div className="w-full px-6 md:px-0">
-            <div className="w-full pt-10">
+        <div className="w-full px-4 md:px-12 py-8">
+            <div className="mb-6 md:mb-12">
                 <PokeSearch />
             </div>
-            <div className="max-h-screen p-6 flex flex-col items-center justify-center text-white overflow-auto">
+            <div className="max-h-screen px-4 md:px-0 py-6 md:py-12 flex flex-col items-center text-white overflow-auto">
 
                 <button
                     onClick={() => navigate('/')}
                     className="text-white hover:text-gray-200 transition-colors duration-200 mb-6 flex items-center">
-                    <ArrowLeftIcon className="h-5 w-5 mr-1" />
+                    <ArrowLeftIcon className="h-5 w-5 mr-2" />
                     Back
                 </button>
-                <div className="flex flex-col md:flex-row items-center justify-center bg-white text-black rounded-xl p-8 shadow-xl w-full md:w-3/4 lg:w-1/2">
 
-                    <PokeImage pokemonDetails={pokemonDetails} />
+                <div className="bg-white text-black rounded-xl shadow-lg w-full md:max-w-2xl lg:max-w-3xl p-6 md:p-12 space-y-8 md:space-y-0 md:space-x-6 md:flex md:items-start">
 
-                    <div className="w-full md:w-auto">
-                        <h2 className="text-xl font-bold mb-2">Types:</h2>
-                        <div className="flex flex-wrap justify-center md:justify-start mb-8">
-                            {pokemonDetails.types.map((type, index) => (
-                                <TypeLabel key={index} type={type.type.name} className="mr-2 mb-2 bg-blue-500 text-white rounded px-2 py-1" />
-                            ))}
-                        </div>
-                        <h2 className="text-xl font-bold mb-2">Stats:</h2>
-                        <PokeStats pokemonDetails={pokemonDetails} />
+                    <PokeImage pokemonDetails={pokemonDetails} className="mb-6 md:mb-0" />
 
-                        <h2 className="text-xl font-bold mb-2">Abilities:</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                            {pokemonDetails.abilities.map((ability, index) => (
-                                <div key={index} className="capitalize">
+                    <div className="space-y-6">
+                        <section>
+                            <h2 className="text-xl font-bold mb-4 underline">Types:</h2>
+                            <div className="flex flex-wrap justify-center">
+                                {pokemonDetails.types.map((type, index) => (
+                                    <TypeLabel key={index} type={type.type.name} className="mr-2 mb-2 bg-blue-500 text-white rounded px-3 py-1" />
+                                ))}
+                            </div>
+                        </section>
 
-                                    {ability.ability.name}
-                                </div>
-                            ))}
-                        </div>
+                        <section>
+                            <h2 className="text-xl font-bold mb-4 underline">Stats:</h2>
+                            <PokeStats pokemonDetails={pokemonDetails} />
+                        </section>
+
+                        <section>
+                            <h2 className="text-xl font-bold mb-4 underline">Abilities:</h2>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {pokemonDetails.abilities.map((ability, index) => (
+                                    <div key={index} className="capitalize text-center md:text-left p-2 bg-gray-100 rounded">
+                                        {ability.ability.name}
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
         </div>
     );
+
 
 
 
