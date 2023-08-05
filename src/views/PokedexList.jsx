@@ -5,6 +5,7 @@ import PokedexElement from '../components/Pokedex/PokedexElement'
 import { getPokemonList } from '../api/api.jsx';
 import PokedexDetail from './PokedexDetail'
 import { Link } from 'react-router-dom';
+import loadingGif from '../assets/pokball1.gif'
 
 const PokedexList = () => {
     const [pokemonList, setPokemonList] = useState([]);
@@ -53,6 +54,12 @@ const PokedexList = () => {
                         </Link>
                     ))}
                 </div>
+                {isLoading && (
+                    <div className="flex justify-center mt-5">
+                        <img src={loadingGif} alt="Loading" className="w-16 h-16" />
+                    </div>
+                )}
+                <div ref={loadRef} className="mb-10" />
 
                 <div ref={loadRef} className="mb-10" />
             </div>
