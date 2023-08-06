@@ -12,7 +12,7 @@ function App() {
 
 function AppContent() {
   return (
-    <div className="w-full mx-auto overflow-auto">
+    <div className="w-full mx-auto ">
       <Router>
         <Routes>
           <Route exact path="/" element={<PokedexList />} />

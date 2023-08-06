@@ -23,4 +23,10 @@ const getPokemonDetails = async (pokemonName) => {
     const response = await axios.get(POKEAPI_URL + `pokemon/${pokemonName}`);
     return response.data;
 }
-export { getPokemonList, getPokemonDetails, getAllPokemonList }
+
+const getMoveDetails = async (moveName) => {
+    const response = await axios.get(POKEAPI_URL + `move/${moveName}`);
+    return response.data;
+}
+
+export { getPokemonList, getPokemonDetails, getAllPokemonList, getMoveDetails }

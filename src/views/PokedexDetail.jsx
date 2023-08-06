@@ -7,6 +7,8 @@ import { ArrowLeftIcon } from '@heroicons/react/24/solid';
 import { useNavigate } from 'react-router-dom';
 import PokeImage from '../components/PokedexDetail/PokeImage.jsx';
 import PokeStats from '../components/PokedexDetail/PokeStats';
+import PokeAbilities from '../components/PokedexDetail/PokeAbilities.jsx';
+import PokeMoves from '../components/PokedexDetail/PokeMoves';
 import { useNavigation } from 'react-router-dom';
 
 function PokedexDetail() {
@@ -28,7 +30,7 @@ function PokedexDetail() {
             <div className="mb-6 md:mb-12">
                 <PokeSearch />
             </div>
-            <div className="max-h-screen px-4 md:px-0 py-6 md:py-12 flex flex-col items-center text-white overflow-auto">
+            <div className="mb-5 max-h-screen px-4 md:px-0 py-6 md:py-12 flex flex-col items-center text-white">
 
                 <button
                     onClick={() => navigate('/')}
@@ -37,7 +39,7 @@ function PokedexDetail() {
                     Back
                 </button>
 
-                <div className="bg-white text-black rounded-xl shadow-lg w-full md:max-w-2xl lg:max-w-3xl p-6 md:p-12 space-y-8 md:space-y-0 md:space-x-6 md:flex md:items-start">
+                <div className=" bg-white text-black rounded-xl shadow-lg w-full md:max-w-2xl lg:max-w-3xl p-6 md:p-12 space-y-8 md:space-y-0 md:space-x-6 md:flex md:items-start">
 
                     <PokeImage pokemonDetails={pokemonDetails} className="mb-6 md:mb-0" />
 
@@ -58,13 +60,11 @@ function PokedexDetail() {
 
                         <section>
                             <h2 className="text-xl font-bold mb-4 underline">Abilities:</h2>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                {pokemonDetails.abilities.map((ability, index) => (
-                                    <div key={index} className="capitalize text-center md:text-left p-2 bg-gray-100 rounded">
-                                        {ability.ability.name}
-                                    </div>
-                                ))}
-                            </div>
+                            <PokeAbilities abilities={pokemonDetails} />
+                        </section>
+                        <section>
+                            <h2 className="text-xl font-bold mb-4 underline">Moves:</h2>
+                            <PokeMoves pokemonDetails={pokemonDetails} />
                         </section>
                     </div>
                 </div>
